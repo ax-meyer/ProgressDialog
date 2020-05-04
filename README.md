@@ -1,7 +1,7 @@
 # ProgressDialog
 Simple, easy to use dialog with ProgressBar for WPF with MVVM pattern.
 
-Simply add the `ProgressDialog` project as dependency and use like this:
+Simply add the nuget package https://www.nuget.org/packages/ProgressDialog/ project as dependency and use like this:
 
 ```
 using ProgressDialog;
