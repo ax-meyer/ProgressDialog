@@ -20,4 +20,4 @@ jobs:
     - name: create nuget package
       run: dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
     - name: Publish net core
-      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg" --source "github"
+      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg" --source "https://nuget.pkg.github.com/ax-meyer/index.json" -k ${{ secrets.GITHUB_TOKEN }}
