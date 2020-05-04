@@ -20,7 +20,7 @@ namespace ProgressDialog
     /// </summary>
     public partial class ProgressDialogWindow : Window
     {
-        public ProgressDialogWindow(string progressWindowTitle, AbstractProgressStatus ps)
+        public ProgressDialogWindow(string progressWindowTitle, ProgressStatus ps)
         {
             DataContext = ps;
             Title = progressWindowTitle;

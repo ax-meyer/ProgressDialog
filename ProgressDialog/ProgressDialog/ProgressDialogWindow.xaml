@@ -15,6 +15,6 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ProgressPercent, StringFormat={}{0}%}"/>
         </Grid>
             
-        <Button Content="Cancel" Command="{Binding CancelCommand}"  CommandParameter="{Binding ElementName=ProgressDialogWin}" DockPanel.Dock="Top" MinWidth="100"/>
+        <Button Content="Cancel" Command="{Binding CancelCommand}" DockPanel.Dock="Top" MinWidth="100"/>
     </DockPanel>
 </Window>

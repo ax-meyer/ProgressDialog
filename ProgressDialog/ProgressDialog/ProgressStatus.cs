@@ -6,16 +6,18 @@ using System.Windows;
 namespace ProgressDialog
 {
     /// <summary>Basic class for progress status. Provides everything that is needed for a simple, working implementation.</summary>
-    public abstract class AbstractProgressStatus : BindableBase
+    public class ProgressStatus : BindableBase
     {
         private int progressPercent = 0;
         private string message = "Waiting for task to start...";
 
         /// <summary>Gets CancellationTokenSource to use to cancel the async function.</summary>
-        public CancellationTokenSource CTS { get; private set; } = new CancellationTokenSource();
+        private CancellationTokenSource CTS { get; set; } = new CancellationTokenSource();
+
+        public CancellationToken CT => CTS.Token;
 
         /// <summary>Command executed when cancel button is clicked.</summary>
-        public DelegateCommand<Window> CancelCommand => new DelegateCommand<Window>(cancelCommand);
+        public DelegateCommand CancelCommand => new DelegateCommand(CTS.Cancel);
 
         /// <summary>Gets message to be displayed in ProgressDialog.</summary>
         public string Message
@@ -46,14 +48,6 @@ namespace ProgressDialog
         {
             Message = message;
             ProgressPercent = progressPercent;
-        }
-
-        /// <summary>Function called by <see cref="CancelEvent"/>. Sends Cancel request to <see cref="CTS"/> and closes the window.</summary>
-        /// <param name="win"></param>
-        private void cancelCommand(Window win)
-        {
-            CTS.Cancel();
-            win.Close();
         }
     }
 }
