@@ -26,3 +26,6 @@ jobs:
 
     - name: Publish net core
       run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg"
+      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg" --api-key ${{ secrets.NUGET_DEPLOY_KEY }}  --source 
+      
+      NUGET_DEPLOY_KEY
