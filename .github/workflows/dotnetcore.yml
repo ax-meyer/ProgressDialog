@@ -17,7 +17,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+        source-url: https://nuget.pkg.github.com/ax-meyer/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}   
+
     - name: create nuget package
       run: dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
+
     - name: Publish net core
-      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg" --source "https://nuget.pkg.github.com/ax-meyer/index.json" -k ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg"
