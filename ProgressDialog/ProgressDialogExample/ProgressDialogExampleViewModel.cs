@@ -49,10 +49,6 @@ namespace ProgressDialogExample
             for (int i = 0; i < 10; i++)
             {
                 await Task.Run(() => { Thread.Sleep(1000); });
-                if (i == 3)
-                {
-                    throw new InvalidCastException();
-                }
                 progressStatus.Update("Steps completed " + (i + 1).ToString() + "/10", (i+1) * 10);
                 progressStatus.CT.ThrowIfCancellationRequested();
             }

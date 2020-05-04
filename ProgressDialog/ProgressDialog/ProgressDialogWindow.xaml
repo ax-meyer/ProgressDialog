@@ -6,15 +6,24 @@
         x:Name="ProgressDialogWin"
              xmlns:local="clr-namespace:ProgressDialog"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="200">
+        Width="300"
+        MinWidth="100"
+        Height="150">
     
-    <DockPanel LastChildFill="False" VerticalAlignment="Center">
-        <Label Content="{Binding Message, Mode=OneWay}" DockPanel.Dock="Top" MinWidth="100"/>
-        <Grid DockPanel.Dock="Top">
-            <ProgressBar Value="{Binding ProgressPercent, Mode=OneWay}" MinHeight="20" MinWidth="100" DockPanel.Dock="Top" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding Message, Mode=OneWay}" Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <ProgressBar Value="{Binding ProgressPercent, Mode=OneWay}"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ProgressPercent, StringFormat={}{0}%}"/>
         </Grid>
-            
-        <Button Content="Cancel" Command="{Binding CancelCommand}" DockPanel.Dock="Top" MinWidth="100"/>
-    </DockPanel>
+        <Button Content="Cancel" Command="{Binding CancelCommand}" Grid.Row="2"/>
+    </Grid>
 </Window>
