@@ -18,11 +18,9 @@ jobs:
       with:
         dotnet-version: 3.1.101
         source-url: https://api.nuget.org/v3/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_DEPLOY_KEY}}   
 
     - name: create nuget package
       run: dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
 
     - name: Publish to nuget
-      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg"
+      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.0.0.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} 
