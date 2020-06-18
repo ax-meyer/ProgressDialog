@@ -14,5 +14,27 @@
         <GroupBox Header="Inline Taks Progress" Margin="50,20,50,0">
             <pg:ProgressDialogUserControl DataContext="{Binding TestStatus}" />
         </GroupBox>
+        <Separator Margin="0,20,0,20"/>
+        <GroupBox Header="Registered Events" Padding="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="ProgressUpdated Event last published: " Grid.Row="0" Grid.Column="0"/>
+                <Label Content="{Binding ProgressUpdatedEventLast}" Grid.Row="0" Grid.Column="1"/>
+
+                <Label Content="Finished Event last published: " Grid.Row="1" Grid.Column="0"/>
+                <Label Content="{Binding FinishedEventLast}" Grid.Row="1" Grid.Column="1"/>
+
+                <Label Content="Cancelled Event last published: " Grid.Row="2" Grid.Column="0"/>
+                <Label Content="{Binding CancelledEventLast}" Grid.Row="2" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
     </StackPanel>
 </Window>

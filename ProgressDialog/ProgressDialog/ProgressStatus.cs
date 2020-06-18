@@ -23,7 +23,22 @@ namespace ProgressDialog
         /// <summary>Gets a value indicating whether the associated task was cancelled.</summary>
         public bool IsCancelled => CTS.IsCancellationRequested;
 
-        /// <summary>Gets or sets a value indicating whether the associated taks is finished.</summary>
+        /// <summary>Delegate event handler for <see cref="Finished"/>.</summary>
+        public delegate void FinishedEventHandler(ProgressStatus progressStatus);
+        /// <summary>Event published when the associated task is finished.</summary>
+        public event FinishedEventHandler Finished;
+
+        /// <summary>Delegate event handler for <see cref="Cancelled"/>.</summary>
+        public delegate void CancelledEventHandler(ProgressStatus progressStatus);
+        /// <summary>Event published when the associated task is cancelled.</summary>
+        public event CancelledEventHandler Cancelled;
+
+        /// <summary>Delegate event handler for <see cref="ProgessUpdated"/>.</summary>
+        public delegate void ProgressUpdatedEventHandler(ProgressStatus progressStatus);
+        /// <summary>Event published when the progress is updated.</summary>
+        public event ProgressUpdatedEventHandler ProgessUpdated;
+
+        /// <summary>Gets or sets a value indicating whether the associated task is finished.</summary>
         public bool IsFinished
         {
             get => isFinished;
@@ -33,6 +48,7 @@ namespace ProgressDialog
                 progressPercent = 100;
                 RaisePropertyChanged(nameof(IsFinished));
                 RaisePropertyChanged(nameof(ProgressPercent));
+                Finished.Invoke(this);
             }
         }
 
@@ -58,6 +74,7 @@ namespace ProgressDialog
                 {
                     isFinished = true;
                     RaisePropertyChanged(nameof(IsFinished));
+                    Finished.Invoke(this);
                 }
                 else if (isFinished == true)
                 {
@@ -75,12 +92,14 @@ namespace ProgressDialog
         {
             Message = message;
             ProgressPercent = progressPercent;
+            ProgessUpdated.Invoke(this);
         }
 
         private void Cancel()
         {
             CTS.Cancel();
             RaisePropertyChanged(nameof(IsCancelled));
+            Cancelled.Invoke(this);
         }
     }
 }
