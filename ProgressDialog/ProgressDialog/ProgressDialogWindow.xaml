@@ -11,19 +11,6 @@
         Height="150">
     
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Label Content="{Binding Message, Mode=OneWay}" Grid.Row="0"/>
-        <Grid Grid.Row="1">
-            <ProgressBar Value="{Binding ProgressPercent, Mode=OneWay}"/>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ProgressPercent, StringFormat={}{0}%}"/>
-        </Grid>
-        <Button Content="Cancel" Command="{Binding CancelCommand}" Grid.Row="2"/>
+        <local:ProgressDialogUserControl />
     </Grid>
 </Window>

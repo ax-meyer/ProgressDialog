@@ -9,10 +9,22 @@ namespace ProgressDialogExample
 {
     class ProgressDialogExampleViewModel : BindableBase
     {
-        public DelegateCommand testcommand => new DelegateCommand(testfunction);
+        public DelegateCommand testcommand_popup => new DelegateCommand(testfunction_popup);
+        public DelegateCommand testcommand_inline => new DelegateCommand(testfunction_inline);
+
+        private ProgressStatus testStatus;
+        public ProgressStatus TestStatus
+        {
+            get => testStatus;
+            private set
+            {
+                testStatus = value;
+                RaisePropertyChanged(nameof(TestStatus));
+            }
+        }
 
         /// <summary>Async test function getting called by UI through delegate command.</summary>
-        private async void testfunction()
+        private async void testfunction_popup()
         {
             /// Setup <see cref="ExampleProgressStatus"/> object to propagte updates & cancel request between view and function
             ProgressStatus progressStatus = new ProgressStatus();
@@ -33,12 +45,36 @@ namespace ProgressDialogExample
             }
             catch (OperationCanceledException)
             {
-                // hande canceled operation
+                // handle canceled operation
             }
 
             // close the window
             progressWindow.Close();
             await progressWindowTask;
+        }
+
+        private async void testfunction_inline()
+        {
+            /// Setup <see cref="ExampleProgressStatus"/> object to propagte updates & cancel request between view and function
+            TestStatus = new ProgressStatus();
+
+            /// Start the async function to run in the background.
+            Task ts = longFunction(TestStatus);
+
+            /// Instantiate & open the progress bar window asynchronously.
+            /// One can also use .ShowDialog(), but it will block the thread until the window is closed - the task will still run, since it was already started async, but the try / catch block will not work.
+            /// Otherwise, one can use .Show(), but this means the Dialog window won't be modal and interaction with other windows is possible.
+            
+
+            /// Wait for the async task to finish, handle cancelation exception.
+            try
+            {
+                await ts;
+            }
+            catch (OperationCanceledException)
+            {
+                // handle canceled operation
+            }
         }
 
         /// <summary>Async function to execute.</summary>

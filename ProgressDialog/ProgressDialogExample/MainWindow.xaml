@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgressDialogExample"
+        xmlns:pg="clr-namespace:ProgressDialog;assembly=ProgressDialog"
         mc:Ignorable="d"
-        Title="ProgessDialog Example" Height="450" Width="800">
-    <Grid>
-        <Button Content="Start Example" Command="{Binding testcommand}"/>
-    </Grid>
+        Title="ProgessDialog Example" Height="450" Width="400">
+    <StackPanel>
+        <Button Content="Start Example with Pop-up status" Command="{Binding testcommand_popup}" />
+        <Separator Margin="0,20,0,20"/>
+        <Button Content="Start Example with inline status" Command="{Binding testcommand_inline}" />
+        <GroupBox Header="Inline Taks Progress" Margin="50,20,50,0">
+            <pg:ProgressDialogUserControl DataContext="{Binding TestStatus}" />
+        </GroupBox>
+    </StackPanel>
 </Window>
