@@ -48,7 +48,7 @@ namespace ProgressDialog
                 progressPercent = 100;
                 RaisePropertyChanged(nameof(IsFinished));
                 RaisePropertyChanged(nameof(ProgressPercent));
-                Finished.Invoke(this);
+                Finished?.Invoke(this);
             }
         }
 
@@ -92,14 +92,14 @@ namespace ProgressDialog
         {
             Message = message;
             ProgressPercent = progressPercent;
-            ProgessUpdated.Invoke(this);
+            ProgessUpdated?.Invoke(this);
         }
 
         private void Cancel()
         {
             CTS.Cancel();
             RaisePropertyChanged(nameof(IsCancelled));
-            Cancelled.Invoke(this);
+            Cancelled?.Invoke(this);
         }
     }
 }
