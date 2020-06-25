@@ -25,4 +25,4 @@ jobs:
       run: dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
 
     - name: Publish to nuget
-      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.1.2.0.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
+      run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.*.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
