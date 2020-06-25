@@ -122,11 +122,11 @@ namespace ProgressDialogExample
             }
         }
 
-        private void HandleCancelledEvent(ProgressStatus progressStatus) => CancelledEventLast = DateTime.Now.ToString();
+        private void HandleCancelledEvent(IProgressStatus progressStatus) => CancelledEventLast = DateTime.Now.ToString();
 
-        private void HandleFinishedEvent(ProgressStatus progressStatus) => FinishedEventLast = DateTime.Now.ToString();
+        private void HandleFinishedEvent(IProgressStatus progressStatus) => FinishedEventLast = DateTime.Now.ToString();
 
-        private void HandleProgessUpdatedEvent(ProgressStatus progressStatus) => ProgressUpdatedEventLast = DateTime.Now.ToString();
+        private void HandleProgessUpdatedEvent(IProgressStatus progressStatus) => ProgressUpdatedEventLast = DateTime.Now.ToString();
         #endregion
 
         /// <summary>Async function to execute.</summary>

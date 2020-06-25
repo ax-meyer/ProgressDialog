@@ -1,16 +1,18 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using System;
 using System.Threading;
 using System.Windows;
 
 namespace ProgressDialog
 {
     /// <summary>Basic class for progress status. Provides everything that is needed for a simple, working implementation.</summary>
-    public class ProgressStatus : BindableBase
+    public class ProgressStatus : BindableBase, IProgressStatus
     {
         private int progressPercent = 0;
         private string message = "Waiting for task to start...";
         private bool isFinished;
+
 
         /// <summary>Gets CancellationTokenSource to use to cancel the async function.</summary>
         private CancellationTokenSource CTS { get; set; } = new CancellationTokenSource();
@@ -23,20 +25,14 @@ namespace ProgressDialog
         /// <summary>Gets a value indicating whether the associated task was cancelled.</summary>
         public bool IsCancelled => CTS.IsCancellationRequested;
 
-        /// <summary>Delegate event handler for <see cref="Finished"/>.</summary>
-        public delegate void FinishedEventHandler(ProgressStatus progressStatus);
         /// <summary>Event published when the associated task is finished.</summary>
-        public event FinishedEventHandler Finished;
+        public event Action<IProgressStatus> Finished;
 
-        /// <summary>Delegate event handler for <see cref="Cancelled"/>.</summary>
-        public delegate void CancelledEventHandler(ProgressStatus progressStatus);
         /// <summary>Event published when the associated task is cancelled.</summary>
-        public event CancelledEventHandler Cancelled;
+        public event Action<IProgressStatus> Cancelled;
 
-        /// <summary>Delegate event handler for <see cref="ProgessUpdated"/>.</summary>
-        public delegate void ProgressUpdatedEventHandler(ProgressStatus progressStatus);
         /// <summary>Event published when the progress is updated.</summary>
-        public event ProgressUpdatedEventHandler ProgessUpdated;
+        public event Action<IProgressStatus> ProgessUpdated;
 
         /// <summary>Gets or sets a value indicating whether the associated task is finished.</summary>
         public bool IsFinished
