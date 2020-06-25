@@ -74,7 +74,7 @@ namespace ProgressDialog
                 {
                     isFinished = true;
                     RaisePropertyChanged(nameof(IsFinished));
-                    Finished.Invoke(this);
+                    Finished?.Invoke(this);
                 }
                 else if (isFinished == true)
                 {
