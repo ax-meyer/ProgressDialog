@@ -19,7 +19,11 @@ jobs:
         PACKAGE_VERSION: 1.2.1
         
     - name: create DialogStatus nuget package
-      run: dotnet pack "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
+      run: | 
+        dotnet build "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
+        dotnet pack "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
 
     - name: create nuget package
-      run: dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
+      run: |
+        dotnet build "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
+        dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
