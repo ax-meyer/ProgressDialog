@@ -22,7 +22,7 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_DEPLOY_KEY}}
         PACKAGE_VERSION: 1.2.1
         
-     - name: create DialogStatus nuget package
+    - name: create DialogStatus nuget package
       run: dotnet pack "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
 
     - name: Publish DialogStatus to nuget
