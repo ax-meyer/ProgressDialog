@@ -25,12 +25,5 @@ jobs:
     - name: create DialogStatus nuget package
       run: dotnet pack "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
 
-    #- name: Publish DialogStatus to nuget
-      #run: dotnet nuget push "ProgressDialog/ProgressDialogStatus/bin/Release/ProgressDialogStatus.${{env.PACKAGE_VERSION}}.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
-
-
     - name: create nuget package
       run: dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
-
-    #- name: Publish to nuget
-      #run: dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.${{env.PACKAGE_VERSION}}.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
