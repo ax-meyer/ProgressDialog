@@ -36,5 +36,5 @@ jobs:
       env:
         PACKAGE_VERSION: 1.2.1
       run: | 
-        dotnet nuget push "ProgressDialog/ProgressDialogStatus/bin/Release/ProgressDialogStatus."$PACKAGE_VERSION".nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
-        dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog."$PACKAGE_VERSION".nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
+        dotnet nuget push "ProgressDialog/ProgressDialogStatus/bin/Release/ProgressDialogStatus.${{PACKAGE_VERSION}}.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
+        dotnet nuget push "ProgressDialog/ProgressDialog/bin/Release/ProgressDialog.${{PACKAGE_VERSION}}.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
