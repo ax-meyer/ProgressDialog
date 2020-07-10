@@ -2,7 +2,6 @@
 using Prism.Mvvm;
 using System;
 using System.Threading;
-using System.Windows;
 
 namespace ProgressDialog
 {

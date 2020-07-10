@@ -9,8 +9,8 @@ namespace ProgressDialogExample
 {
     class ProgressDialogExampleViewModel : BindableBase
     {
-        public DelegateCommand testcommand_popup => new DelegateCommand(testfunction_popup);
-        public DelegateCommand testcommand_inline => new DelegateCommand(testfunction_inline);
+        public DelegateCommand Testcommand_popup => new DelegateCommand(executeMethod: Testfunction_popup);
+        public DelegateCommand Testcommand_inline => new DelegateCommand(Testfunction_inline);
 
         private ProgressStatus testStatus;
         private string progressUpdatedEventLast = "Never";
@@ -28,7 +28,7 @@ namespace ProgressDialogExample
         }
 
         /// <summary>Async test function getting called by UI through delegate command.</summary>
-        private async void testfunction_popup()
+        private async void Testfunction_popup()
         {
             /// Setup <see cref="ExampleProgressStatus"/> object to propagte updates & cancel request between view and function
             ProgressStatus progressStatus = new ProgressStatus();
@@ -37,7 +37,7 @@ namespace ProgressDialogExample
             progressStatus.Cancelled += HandleCancelledEvent;
 
             /// Start the async function to run in the background.
-            Task ts = longFunction(progressStatus);
+            Task ts = LongFunction(progressStatus);
 
             /// Instantiate & open the progress bar window asynchronously.
             /// One can also use .ShowDialog(), but it will block the thread until the window is closed - the task will still run, since it was already started async, but the try / catch block will not work.
@@ -62,7 +62,7 @@ namespace ProgressDialogExample
 
         
 
-        private async void testfunction_inline()
+        private async void Testfunction_inline()
         {
             /// Setup <see cref="ExampleProgressStatus"/> object to propagte updates & cancel request between view and function
             TestStatus = new ProgressStatus();
@@ -71,7 +71,7 @@ namespace ProgressDialogExample
             TestStatus.Cancelled += HandleCancelledEvent;
 
             /// Start the async function to run in the background.
-            Task ts = longFunction(TestStatus);
+            Task ts = LongFunction(TestStatus);
 
             /// Instantiate & open the progress bar window asynchronously.
             /// One can also use .ShowDialog(), but it will block the thread until the window is closed - the task will still run, since it was already started async, but the try / catch block will not work.
@@ -132,7 +132,7 @@ namespace ProgressDialogExample
         /// <summary>Async function to execute.</summary>
         /// <param name="progressStatus">Status to update.</param>
         /// <returns></returns>
-        public async Task longFunction(ProgressStatus progressStatus)
+        public async Task LongFunction(ProgressStatus progressStatus)
         {
             for (int i = 0; i < 10; i++)
             {

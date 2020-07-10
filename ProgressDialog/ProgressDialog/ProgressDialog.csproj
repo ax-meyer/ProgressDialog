@@ -11,15 +11,17 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
+    <PackageReference Include="ProgressDialogStatus" Version="1.2.1" />
   </ItemGroup>
   
   <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <PackageProjectUrl>https://github.com/ax-meyer/ProgressDialog/</PackageProjectUrl>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <FileVersion>1.2.1.0</FileVersion>
+    <PackageTags>WPF, MVVM, Progress, Dialog, Status</PackageTags>
   </PropertyGroup>
 
 </Project>
