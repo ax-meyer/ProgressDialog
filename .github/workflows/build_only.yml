@@ -4,11 +4,11 @@ on:
   # Trigger the workflow on push or pull request,
   # but only if not master branch
   push:
-    branches:
-      - !master
+    branches-ignore:
+      - master
   pull_request:
-    branches:
-      - !master
+    branches-ignore:
+      - master
 
 jobs:
   build:
