@@ -1,0 +1,34 @@
+name: .NET Core
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only if not master branch
+  push:
+    branches:
+      - !master
+  pull_request:
+    branches:
+      - !master
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+        source-url: https://api.nuget.org/v3/index.json
+        
+    - name: create DialogStatus nuget package
+      run: | 
+        dotnet build "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
+        dotnet pack "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
+
+    - name: create nuget package
+      run: |
+        dotnet build "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --source "../ProgressDialogStatus/bin/Release/" --configuration Release
+        dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
