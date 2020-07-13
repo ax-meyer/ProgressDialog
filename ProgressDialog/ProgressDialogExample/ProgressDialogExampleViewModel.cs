@@ -9,7 +9,7 @@ namespace ProgressDialogExample
 {
     class ProgressDialogExampleViewModel : BindableBase
     {
-        public DelegateCommand Testcommand_popup => new DelegateCommand(executeMethod: Testfunction_popup);
+        public DelegateCommand Testcommand_popup => new DelegateCommand(Testfunction_popup);
         public DelegateCommand Testcommand_inline => new DelegateCommand(Testfunction_inline);
 
         private IProgressStatus testStatus;
@@ -140,6 +140,7 @@ namespace ProgressDialogExample
                 progressStatus.Update("Steps completed " + (i + 1).ToString() + "/10", (i + 1) * 10);
                 progressStatus.CT.ThrowIfCancellationRequested();
             }
+            progressStatus.IsFinished = true;
         }
     }
 }
