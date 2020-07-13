@@ -1,18 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
-    <Version>1.2.1</Version>
+    <Version>1.2.2</Version>
     <PackageProjectUrl>https://github.com/ax-meyer/ProgressDialog/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ax-meyer/ProgressDialog/</RepositoryUrl>
     <PackageTags>WPF, MVVM, Progress, Dialog, Status</PackageTags>
     <Authors>Alexander Meyer</Authors>
     <Product>ProgressDialog</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>../</PackageOutputPath>
+    <Description>Sample implementation of the IProgressStatus interface used by the ProgressDialog package. The interface is also provided in the seperate ProgressDialogStatusInterface package.
+
+This implementation is based on the Prism MVVM framework. The source code should be easily adaptable to other MVMM frameworks.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
+    <PackageReference Include="ProgressDialogStatusInterface" Version="1.2.2" />
   </ItemGroup>
 
 </Project>

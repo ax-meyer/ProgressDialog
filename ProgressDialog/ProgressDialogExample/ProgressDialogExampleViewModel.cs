@@ -12,12 +12,12 @@ namespace ProgressDialogExample
         public DelegateCommand Testcommand_popup => new DelegateCommand(executeMethod: Testfunction_popup);
         public DelegateCommand Testcommand_inline => new DelegateCommand(Testfunction_inline);
 
-        private ProgressStatus testStatus;
+        private IProgressStatus testStatus;
         private string progressUpdatedEventLast = "Never";
         private string finishedEventLast = "Never";
         private string cancelledEventLast = "Never";
 
-        public ProgressStatus TestStatus
+        public IProgressStatus TestStatus
         {
             get => testStatus;
             private set
@@ -31,7 +31,7 @@ namespace ProgressDialogExample
         private async void Testfunction_popup()
         {
             /// Setup <see cref="ExampleProgressStatus"/> object to propagte updates & cancel request between view and function
-            ProgressStatus progressStatus = new ProgressStatus();
+            IProgressStatus progressStatus = new ProgressStatus();
             progressStatus.ProgessUpdated += HandleProgessUpdatedEvent;
             progressStatus.Finished += HandleFinishedEvent;
             progressStatus.Cancelled += HandleCancelledEvent;
@@ -132,7 +132,7 @@ namespace ProgressDialogExample
         /// <summary>Async function to execute.</summary>
         /// <param name="progressStatus">Status to update.</param>
         /// <returns></returns>
-        public async Task LongFunction(ProgressStatus progressStatus)
+        public async Task LongFunction(IProgressStatus progressStatus)
         {
             for (int i = 0; i < 10; i++)
             {

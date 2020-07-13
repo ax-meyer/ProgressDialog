@@ -1,6 +1,6 @@
-﻿using Prism.Commands;
-using System;
+﻿using System;
 using System.Threading;
+using System.Windows.Input;
 
 namespace ProgressDialog
 {
@@ -9,8 +9,8 @@ namespace ProgressDialog
         /// <summary>Gets CancellationToken to use to cancel the async function.</summary>
         CancellationToken CT { get; }
 
-        /// <summary>Command executed when cancel button is clicked.</summary>
-        DelegateCommand CancelCommand { get; }
+        /// <summary>Command executed when cancel button is clicked. Requests cancellation through cancelation token.</summary>
+        ICommand CancelCommand { get; }
 
         /// <summary>Gets a value indicating whether the associated task was cancelled.</summary>
         bool IsCancelled { get; }
