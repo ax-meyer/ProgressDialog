@@ -17,10 +17,15 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.101
+        dotnet-version: 3.1.201
         source-url: https://api.nuget.org/v3/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_DEPLOY_KEY}}
+        
+    - name: create DialogStatusInterface nuget package
+      run: | 
+        dotnet build "ProgressDialog/ProgressDialogStatusInterface/ProgressDialogStatusInterface.csproj" --configuration Release
+        dotnet pack "ProgressDialog/ProgressDialogStatusInterface/ProgressDialogStatusInterface.csproj" --configuration Release
         
     - name: create DialogStatus nuget package
       run: | 
@@ -29,5 +34,5 @@ jobs:
 
     - name: create nuget package
       run: |
-        dotnet build "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --source "../ProgressDialogStatus/bin/Release/" --configuration Release
+        dotnet build "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release
         dotnet pack "ProgressDialog/ProgressDialog/ProgressDialog.csproj" --configuration Release

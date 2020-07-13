@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using System;
 using System.Threading;
+using System.Windows.Input;
 
 namespace ProgressDialog
 {
@@ -12,14 +13,13 @@ namespace ProgressDialog
         private string message = "Waiting for task to start...";
         private bool isFinished;
 
-
         /// <summary>Gets CancellationTokenSource to use to cancel the async function.</summary>
         private CancellationTokenSource CTS { get; set; } = new CancellationTokenSource();
 
         public CancellationToken CT => CTS.Token;
 
         /// <summary>Command executed when cancel button is clicked.</summary>
-        public DelegateCommand CancelCommand => new DelegateCommand(Cancel);
+        public ICommand CancelCommand => new DelegateCommand(Cancel);
 
         /// <summary>Gets a value indicating whether the associated task was cancelled.</summary>
         public bool IsCancelled => CTS.IsCancellationRequested;
