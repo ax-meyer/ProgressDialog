@@ -1,51 +1,14 @@
 # ProgressDialog
-Simple, easy to use dialog with ProgressBar for WPF with MVVM pattern.
+Simple, easy to use dialog with ProgressBar for WPF with the MVVM pattern, that can either be embedded into an existing window or be displayed as a dialog in it's own window.
 
-Simply add the nuget package https://www.nuget.org/packages/ProgressDialog/ project as dependency and use like this:
+The package consists of two parts:
+* The user interface side, either as standalone `ProgressDialogWindow`, or as `ProgressDialogUserControl` to be embedded into an existing window. 
+* A `ProgressStatus` object implementing the `IProgressStatus` interface. The `ProgressStatus` object can be passed to the model and any long running task can use it to update the status in the view, receive a cancellation request etc. The `ProgressStatus` object is also passed as the `DataContext` to the `ProgressDialogUserControl`, so the view can bind to it's properties in a clean MVVM-fashion.
 
-```
-using ProgressDialog;
+## How to use
 
-/// <summary>Async test function getting called by UI through delegate command.</summary>
-private async void testfunction()
-{
-    /// Setup <see cref="ProgressStatus"/> object to propagte updates & cancel request between view and function
-    ProgressStatus progressStatus = new ProgressStatus();
+Simply add the nuget package https://www.nuget.org/packages/ProgressDialog/ project as dependency.
+If you want to integrate the `ProgressStatus` object into a model in e.g. a netStandard library without support for WPF, use this package in the model: https://www.nuget.org/packages/ProgressDialogStatus/. It provides the `ProgressStatus` class - and the `IProgressStatus` interface, in case you want to implement it yourself - seperately from the WPF components. 
 
-    /// Start the async function to run in the background.
-    Task ts = longFunction(progressStatus);
-
-    /// Instantiate & open the progress bar window asynchronously.
-    ProgressDialogWindow progressWindow = new ProgressDialogWindow("Example Progress Window", progressStatus);
-    Task<bool?> progressWindowTask = progressWindow.ShowDialogAsync();
-
-    /// Wait for the async task to finish, handle cancelation exception.
-    try
-    {
-        await ts;
-    }
-    catch (OperationCanceledException)
-    {
-        // hande canceled operation
-    }
-
-    // close the window
-    progressWindow.Close();
-    await progressWindowTask;
-}
-
-/// <summary>Async function to execute.</summary>
-/// <param name="progressStatus">Status to update.</param>
-/// <returns></returns>
-public async Task longFunction(ProgressStatus progressStatus)
-{
-    for (int i = 0; i < 10; i++)
-    {
-        await Task.Run(() => { Thread.Sleep(1000); });
-        progressStatus.Update("Steps completed " + (i + 1).ToString() + "/10", (i+1) * 10);
-        
-        // Check if cancealtion is requested and exit.
-        progressStatus.CT.ThrowIfCancellationRequested();
-    }
-}
-```
+## Example
+https://github.com/ax-meyer/ProgressDialog/tree/master/ProgressDialog/ProgressDialogExample provides a sample view model showing the usage of the ProgressDialog.
