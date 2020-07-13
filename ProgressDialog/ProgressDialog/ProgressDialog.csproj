@@ -10,17 +10,18 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <Version>1.2.2</Version>
+    <Version>1.2.3</Version>
     <PackageProjectUrl>https://github.com/ax-meyer/ProgressDialog/</PackageProjectUrl>
     <PackageTags>WPF, MVVM, Progress, Dialog, Status</PackageTags>
     <PackageOutputPath>../</PackageOutputPath>
-    <Description>An easy-to-integrate progess indicator for MVVM pattern based WPF applications. Features a status text &amp; progress bar that can be updated from long running tasks in the model through a IProgressStatus Interface. The interface is also provided separeteley in the ProgressDialogStatusIntreface package, which is a netStandard 2.0 package without dependency on WPF, so it can be integrated into netStandard libraries.
+    <Description>An easy-to-integrate progess indicator for MVVM pattern based WPF applications. Features a status text &amp; progress bar that can be updated from long running tasks in the model through a IProgressStatus interface. 
 
-A sample implementation of the IProgressStatus Interface based on the Prism MVVM framework is provided in the ProgressDialogStatus package. This implementation is ready-to-use for projects using Prism for the MVMM pattern.</Description>
+The interface is also provided seperateley in the ProgressDialogStatus package, which is a netStandard 2.0 package without dependency on WPF, so it can be integrated into netStandard libraries. It also contains a ready-to-use sample implementation of the interface.
+</Description>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="ProgressDialogStatusInterface" Version="1.2.2" />
+    <PackageReference Include="ProgressDialogStatus" Version="1.2.3" />
   </ItemGroup>
 
 </Project>
