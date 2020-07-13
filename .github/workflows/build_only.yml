@@ -29,7 +29,7 @@ jobs:
         
     - name: create DialogStatus nuget package
       run: | 
-        dotnet build "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --source "../" --source https://api.nuget.org/v3/index.json --configuration Release
+        dotnet build "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --source "../" --source https://api.nuget.org/v3/index.json --configuration Release --verbosity n
         dotnet pack "ProgressDialog/ProgressDialogStatus/ProgressDialogStatus.csproj" --configuration Release
 
     - name: create nuget package
