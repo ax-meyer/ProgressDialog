@@ -34,7 +34,7 @@ jobs:
         
     - name: Publish to nuget
       env:
-        PACKAGE_VERSION: 1.2.3
+        PACKAGE_VERSION: 1.2.4
       run: | 
         dotnet nuget push "ProgressDialog/ProgressDialogStatus.${{env.PACKAGE_VERSION}}.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true
         dotnet nuget push "ProgressDialog/ProgressDialog.${{env.PACKAGE_VERSION}}.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --skip-duplicate --no-symbols true

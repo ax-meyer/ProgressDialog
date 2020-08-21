@@ -15,7 +15,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="{Binding Message, Mode=OneWay}" Grid.Row="0"/>
+        <TextBlock Text="{Binding Message, Mode=OneWay}" Grid.Row="0" TextWrapping="Wrap"/>
         <Grid Grid.Row="1">
             <ProgressBar Value="{Binding ProgressPercent, Mode=OneWay}"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ProgressPercent, StringFormat={}{0}%}"/>

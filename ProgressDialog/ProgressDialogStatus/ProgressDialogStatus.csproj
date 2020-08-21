@@ -11,6 +11,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>../</PackageOutputPath>
     <Description>Provides the IProgressStatus interface used by the ProgressDialog package, as well as a ProgressStatus Class as a sample implementation of the interface.</Description>
+    <AssemblyVersion>1.2.4.0</AssemblyVersion>
+    <FileVersion>1.2.4.0</FileVersion>
   </PropertyGroup>
 
 </Project>
