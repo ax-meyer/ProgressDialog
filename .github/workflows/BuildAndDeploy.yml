@@ -28,6 +28,7 @@ jobs:
     
     - name: Clean
       run: |
+        cd ProgressDialog
         dotnet clean
         dotnet nuget locals all --clear
       
