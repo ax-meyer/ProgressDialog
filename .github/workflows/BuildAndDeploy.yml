@@ -25,18 +25,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-    
-    - name: Clean
-      run: |
-        cd ProgressDialog
-        dotnet clean
-        dotnet nuget locals all --clear
-      
+          
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
       
     - name: Build
-      run: dotnet build --configuration Release
+      run: |
+        cd ProgressDialog
+        dotnet build --configuration Release
       
     - name: Nuget Deploy
       if: startsWith(github.ref, 'refs/tags/v') # make sure deploy only runs on tags with version number
@@ -44,6 +40,7 @@ jobs:
         $env:RELEASE_VERSION=($env:GITHUB_REF).split("tags/v")[-1]
         echo $env:RELEASE_VERSION
         echo $env:GITHUB_SHA
+        cd ProgressDialog
         mkdir nupkg
         dotnet pack -p:PackageVersion=$env:RELEASE_VERSION -o  $PWD\nupkg -p:RepositoryCommit=$env:GITHUB_SHA --configuration Release
         cd nupkg
