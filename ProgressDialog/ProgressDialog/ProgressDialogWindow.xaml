@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
         Width="300"
         MinWidth="100"
-        Height="150">
+        Height="150"
+        WindowStartupLocation="CenterOwner"
+        >
     
     <Grid>
         <local:ProgressDialogUserControl />

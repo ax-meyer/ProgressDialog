@@ -4,6 +4,7 @@ using Prism.Commands;
 using ProgressDialog;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Windows;
 
 namespace ProgressDialogExample
 {
@@ -16,6 +17,13 @@ namespace ProgressDialogExample
         private string progressUpdatedEventLast = "Never";
         private string finishedEventLast = "Never";
         private string cancelledEventLast = "Never";
+
+        private Window mainWindowHandle;
+
+        public ProgressDialogExampleViewModel(Window mainWindow)
+        {
+            mainWindowHandle = mainWindow;
+        }
 
         public IProgressStatus TestStatus
         {
@@ -42,7 +50,7 @@ namespace ProgressDialogExample
             /// Instantiate & open the progress bar window asynchronously.
             /// One can also use .ShowDialog(), but it will block the thread until the window is closed - the task will still run, since it was already started async, but the try / catch block will not work.
             /// Otherwise, one can use .Show(), but this means the Dialog window won't be modal and interaction with other windows is possible.
-            ProgressDialogWindow progressWindow = new ProgressDialogWindow("Example Progress Window", progressStatus);
+            ProgressDialogWindow progressWindow = new ProgressDialogWindow("Example Progress Window", progressStatus, mainWindowHandle);
             Task<bool?> progressWindowTask = progressWindow.ShowDialogAsync();
 
             /// Wait for the async task to finish, handle cancelation exception.

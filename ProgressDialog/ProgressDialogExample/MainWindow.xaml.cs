@@ -22,7 +22,7 @@ namespace ProgressDialogExample
     {
         public MainWindow()
         {
-            DataContext = new ProgressDialogExampleViewModel();
+            DataContext = new ProgressDialogExampleViewModel(this);
             InitializeComponent();
         }
     }
