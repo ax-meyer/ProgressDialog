@@ -12,3 +12,8 @@ If you want to integrate the `ProgressStatus` object into a model in e.g. a netS
 
 ## Example
 https://github.com/ax-meyer/ProgressDialog/tree/master/ProgressDialog/ProgressDialogExample provides a sample view model showing the usage of the ProgressDialog.
+
+The dialog itself is just a plain, standard WPF dialog per default:
+![Screenshot of the progress dialog](resources/screenshot.png)
+
+Since it just uses standard components (button, progress bar etc.) you can adapt the style however you like.
