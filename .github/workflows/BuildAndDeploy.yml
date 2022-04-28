@@ -32,6 +32,7 @@ jobs:
     - name: Build
       run: |
         dotnet build --configuration Release --framework netcoreapp3.1 ProgressDialog/ProgressdialogExample/ProgressDialogExample.csproj
+        cd ProgressDialog
         dotnet pack -p:PackageVersion=$env:RELEASE_VERSION -o  $PWD\nupkg -p:RepositoryCommit=$env:GITHUB_SHA --configuration Release
       
     - name: Nuget Deploy
