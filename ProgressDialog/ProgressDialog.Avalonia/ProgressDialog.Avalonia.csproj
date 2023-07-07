@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+        <LangVersion>latest</LangVersion>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>Alexander Meyer</Authors>
+        <Company />
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <RepositoryUrl>https://github.com/ax-meyer/ProgressDialog/</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/ax-meyer/ProgressDialog/</PackageProjectUrl>
+        <PackageTags>Avalonia, MVVM, Progress, Dialog, Status</PackageTags>
+        <PackageOutputPath>../../</PackageOutputPath>
+        <Description>An easy-to-integrate progess indicator for MVVM pattern based Avalonia applications. Features a status text &amp; progress bar that can be updated from long running tasks in the model through a IProgressStatus interface.
+
+            The interface is also provided seperateley in the ProgressDialogStatus package, which is a netStandard 2.0 package without dependency on any UI framework, so it can be integrated into netStandard libraries. It also contains a ready-to-use sample implementation of the interface.
+        </Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.0" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.0" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.0" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ProgressDialogStatus\ProgressDialogStatus.csproj" />
+    </ItemGroup>
+</Project>

@@ -25,13 +25,13 @@ SOFTWARE.
 
 ____ Copyright End ____
 -->
-    <Window x:Class="ProgressDialogExample.MainWindow"
+    <Window x:Class="ProgressDialog.Wpf.Example.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProgressDialogExample"
-        xmlns:pg="clr-namespace:ProgressDialog;assembly=ProgressDialog"
+        xmlns:local="clr-namespace:ProgressDialog.Wpf.Example"
+        xmlns:pg="clr-namespace:ProgressDialog.Wpf;assembly=ProgressDialog.Wpf"
         mc:Ignorable="d"
         Title="ProgessDialog Example" Height="450" Width="400">
     <StackPanel>

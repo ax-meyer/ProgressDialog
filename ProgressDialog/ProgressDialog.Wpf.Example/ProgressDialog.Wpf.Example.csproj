@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <IsPackable>false</IsPackable>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Prism.Core" Version="8.1.97"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ProgressDialog.Wpf\ProgressDialog.Wpf.csproj"/>
+    </ItemGroup>
+
+</Project>

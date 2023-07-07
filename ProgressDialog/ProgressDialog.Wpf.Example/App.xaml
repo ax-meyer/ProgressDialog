@@ -1,4 +1,4 @@
-/*
+<!--
 ____ Copyright Start ____
 
 MIT License
@@ -24,31 +24,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ____ Copyright End ____
-*/
-
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ProgressDialog
-{
-    /// <summary>
-    /// Interaction logic for ProgressDialogUserControl.xaml
-    /// </summary>
-    public partial class ProgressDialogUserControl : UserControl
-    {
-        public ProgressDialogUserControl()
-        {
-            InitializeComponent();
-        }
-    }
-}
+-->
+    <Application x:Class="ProgressDialog.Wpf.Example.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProgressDialog.Wpf.Example"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

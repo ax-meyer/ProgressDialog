@@ -26,20 +26,17 @@ SOFTWARE.
 ____ Copyright End ____
 */
 
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+using Avalonia.Controls;
 
-namespace ProgressDialogExample
+namespace ProgressDialog.Avalonia;
+
+/// <summary>
+/// Interaction logic for ProgressDialogUserControl.xaml
+/// </summary>
+public partial class ProgressDialogUserControl : UserControl
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public ProgressDialogUserControl()
     {
+        InitializeComponent();
     }
 }

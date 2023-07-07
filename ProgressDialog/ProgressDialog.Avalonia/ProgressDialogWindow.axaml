@@ -25,12 +25,24 @@ SOFTWARE.
 
 ____ Copyright End ____
 -->
-    <Application x:Class="ProgressDialogExample.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ProgressDialogExample"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
+
+<controls:Window
+    x:Class="ProgressDialog.Avalonia.ProgressDialogWindow"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="ProgressDialogWin"
+    xmlns:local="clr-namespace:ProgressDialog.Avalonia"
+    xmlns:controls="https://github.com/avaloniaui"
+    xmlns:avalonia="clr-namespace:ProgressDialog.Avalonia"
+    mc:Ignorable="d"
+    Width="300"
+    MinWidth="100"
+    Height="150"
+    WindowStartupLocation="CenterOwner"
+    Title="ProgressDialog">
+
+    <controls:Grid>
+        <avalonia:ProgressDialogUserControl />
+    </controls:Grid>
+</controls:Window>
