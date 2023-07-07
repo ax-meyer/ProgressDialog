@@ -26,7 +26,7 @@ SOFTWARE.
 ____ Copyright End ____
 */
 
-﻿using System;
+using System;
 using System.Threading;
 using System.Windows.Input;
 
@@ -35,9 +35,9 @@ namespace ProgressDialog
     public interface IProgressStatus
     {
         /// <summary>Gets CancellationToken to use to cancel the async function.</summary>
-        CancellationToken CT { get; }
+        CancellationToken Ct { get; }
 
-        /// <summary>Command executed when cancel button is clicked. Requests cancellation through cancelation token.</summary>
+        /// <summary>Command executed when cancel button is clicked. Requests cancellation through cancellation token.</summary>
         ICommand CancelCommand { get; }
 
         /// <summary>Gets a value indicating whether the associated task was cancelled.</summary>
@@ -50,7 +50,7 @@ namespace ProgressDialog
         event Action<IProgressStatus> Cancelled;
 
         /// <summary>Event published when the progress is updated.</summary>
-        event Action<IProgressStatus> ProgessUpdated;
+        event Action<IProgressStatus> ProgressUpdated;
 
         /// <summary>Gets or sets a value indicating whether the associated task is finished.</summary>
         bool IsFinished { get; set; }
