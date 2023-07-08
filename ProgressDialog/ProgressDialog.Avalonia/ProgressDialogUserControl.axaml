@@ -46,7 +46,7 @@ ____ Copyright End ____
         <controls:TextBlock Text="{controls:Binding Message, Mode=OneWay}" controls:Grid.Row="0"
                             TextWrapping="Wrap" />
         <controls:Grid controls:Grid.Row="1">
-            <controls:ProgressBar Value="{controls:Binding ProgressPercent, Mode=OneWay}" />
+            <controls:ProgressBar Height="20" Value="{controls:Binding ProgressPercent, Mode=OneWay}" />
             <controls:TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Text="{controls:Binding ProgressPercent, StringFormat={}{0}%}" />
         </controls:Grid>
