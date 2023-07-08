@@ -1,0 +1,66 @@
+<!--
+____ Copyright Start ____
+
+MIT License
+
+Copyright (c) 2020 ax-meyer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+____ Copyright End ____
+-->
+
+<Window x:Class="ProgressDialog.Avalonia.Example.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pg="clr-namespace:ProgressDialog.Avalonia;assembly=ProgressDialog.Avalonia"
+        xmlns:example="clr-namespace:ProgressDialog.Avalonia.Example"
+        mc:Ignorable="d"
+        Title="ProgressDialog Example" Height="450" Width="400"
+        x:DataType="example:ProgressDialogExampleViewModel"
+        >
+    <StackPanel>
+        <Button Content="Start Example with Pop-up status" Command="{Binding TestCommandPopup}" />
+        <Separator Margin="0,20,0,20" />
+        <Button Content="Start Example with inline status" Command="{Binding TestCommandInline}" />
+        <pg:ProgressDialogUserControl DataContext="{Binding TestStatus}" />
+        <Separator Margin="0,20,0,20" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Content="ProgressUpdated Event last published: " Grid.Row="0" Grid.Column="0" />
+            <Label Content="{Binding ProgressUpdatedEventLast}" Grid.Row="0" Grid.Column="1" />
+
+            <Label Content="Finished Event last published: " Grid.Row="1" Grid.Column="0" />
+            <Label Content="{Binding FinishedEventLast}" Grid.Row="1" Grid.Column="1" />
+
+            <Label Content="Cancelled Event last published: " Grid.Row="2" Grid.Column="0" />
+            <Label Content="{Binding CancelledEventLast}" Grid.Row="2" Grid.Column="1" />
+        </Grid>
+    </StackPanel>
+</Window>

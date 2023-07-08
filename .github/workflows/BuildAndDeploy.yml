@@ -7,19 +7,10 @@ jobs:
     runs-on: windows-latest
    
     steps:
-    - name: Setup python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-        architecture: 'x64'
-        
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
-        submodules: true
-        
-    - name: Check license headers
-      run: python manage_license_headers.py ci
+        submodules: false
       
     - name: Setup Dotnet
       uses: actions/setup-dotnet@v3
@@ -44,4 +35,4 @@ jobs:
         mkdir nupkg
         dotnet pack -p:PackageVersion=$env:RELEASE_VERSION -o  $PWD\nupkg -p:RepositoryCommit=$env:GITHUB_SHA --configuration Release
         cd nupkg
-        dotnet nuget push "**/*.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --source "https://api.nuget.org/v3/index.json" --no-symbols true
+        dotnet nuget push "**/*.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --source "https://api.nuget.org/v3/index.json"

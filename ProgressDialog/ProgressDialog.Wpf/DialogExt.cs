@@ -26,16 +26,15 @@ SOFTWARE.
 ____ Copyright End ____
 */
 
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
-namespace ProgressDialog
+namespace ProgressDialog.Wpf;
+
+public static class DialogExt
 {
-    public static class DialogExt
+    public static async Task<bool?> ShowDialogAsync(this ProgressDialogWindow @this)
     {
-        public static async Task<bool?> ShowDialogAsync(this ProgressDialogWindow @this)
-        {
-            await Task.Yield();
-            return @this.ShowDialog();
-        }
+        await Task.Yield();
+        return @this.ShowDialog();
     }
 }

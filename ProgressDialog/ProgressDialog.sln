@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressDialog", "ProgressDialog\ProgressDialog.csproj", "{E59C4087-C719-4735-B843-E3342E639F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressDialog.Wpf", "ProgressDialog.Wpf\ProgressDialog.Wpf.csproj", "{E59C4087-C719-4735-B843-E3342E639F74}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressDialogExample", "ProgressDialogExample\ProgressDialogExample.csproj", "{773612F0-1184-4D3A-8021-F00023609A6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressDialog.Wpf.Example", "ProgressDialog.Wpf.Example\ProgressDialog.Wpf.Example.csproj", "{773612F0-1184-4D3A-8021-F00023609A6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressDialogStatus", "ProgressDialogStatus\ProgressDialogStatus.csproj", "{CDC84C54-798A-405A-836E-B0C35FD342BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{E643BD19-983D-4E58-AB12-16AEF7C65F74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Avalonia", "Avalonia", "{19E26D8D-E92A-402A-92C5-B05D548584E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressDialog.Avalonia.Example", "ProgressDialog.Avalonia.Example\ProgressDialog.Avalonia.Example.csproj", "{8EFADC07-11EA-474E-8389-4F18D12294D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressDialog.Avalonia", "ProgressDialog.Avalonia\ProgressDialog.Avalonia.csproj", "{2D9C464B-0EED-4B2A-8AC5-21AEC04EC9E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,11 +35,25 @@ Global
 		{CDC84C54-798A-405A-836E-B0C35FD342BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDC84C54-798A-405A-836E-B0C35FD342BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC84C54-798A-405A-836E-B0C35FD342BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFADC07-11EA-474E-8389-4F18D12294D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EFADC07-11EA-474E-8389-4F18D12294D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EFADC07-11EA-474E-8389-4F18D12294D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EFADC07-11EA-474E-8389-4F18D12294D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9C464B-0EED-4B2A-8AC5-21AEC04EC9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9C464B-0EED-4B2A-8AC5-21AEC04EC9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9C464B-0EED-4B2A-8AC5-21AEC04EC9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9C464B-0EED-4B2A-8AC5-21AEC04EC9E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC853A72-802D-4E98-B964-C02D3556D60C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E59C4087-C719-4735-B843-E3342E639F74} = {E643BD19-983D-4E58-AB12-16AEF7C65F74}
+		{773612F0-1184-4D3A-8021-F00023609A6D} = {E643BD19-983D-4E58-AB12-16AEF7C65F74}
+		{8EFADC07-11EA-474E-8389-4F18D12294D3} = {19E26D8D-E92A-402A-92C5-B05D548584E7}
+		{2D9C464B-0EED-4B2A-8AC5-21AEC04EC9E8} = {19E26D8D-E92A-402A-92C5-B05D548584E7}
 	EndGlobalSection
 EndGlobal

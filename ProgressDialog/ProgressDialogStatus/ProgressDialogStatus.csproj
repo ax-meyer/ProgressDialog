@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>Nullable</WarningsAsErrors>
+    <LangVersion>latest</LangVersion>
     <Version>1.2.4</Version>
     <PackageProjectUrl>https://github.com/ax-meyer/ProgressDialog/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ax-meyer/ProgressDialog/</RepositoryUrl>
