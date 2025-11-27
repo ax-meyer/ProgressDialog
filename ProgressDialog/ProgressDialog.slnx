@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Avalonia/">
+    <Project Path="ProgressDialog.Avalonia.Example/ProgressDialog.Avalonia.Example.csproj" />
+    <Project Path="ProgressDialog.Avalonia/ProgressDialog.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/Wpf/">
+    <Project Path="ProgressDialog.Wpf.Example/ProgressDialog.Wpf.Example.csproj" />
+    <Project Path="ProgressDialog.Wpf/ProgressDialog.Wpf.csproj" />
+  </Folder>
+  <Project Path="ProgressDialogStatus/ProgressDialogStatus.csproj" />
+</Solution>
