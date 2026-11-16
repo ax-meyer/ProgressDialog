@@ -9,6 +9,14 @@ public partial class ProgressDialogWindow : Window
     private readonly IProgressStatus _progressStatus;
 
     /// <summary>
+    /// Constructor for the XAML previewer and Avalonia's runtime XAML loader. In code, use the
+    /// constructor that takes the window title and the <see cref="IProgressStatus"/>.
+    /// </summary>
+    public ProgressDialogWindow() : this("ProgressDialog", new ProgressStatus())
+    {
+    }
+
+    /// <summary>
     /// Constructor for ProgressDialogWindow.
     /// </summary>
     /// <param name="progressWindowTitle">Window title.</param>

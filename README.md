@@ -15,6 +15,8 @@ Simply add one of these nuget packages to your project:
 
 [![Avalonia](https://img.shields.io/nuget/v/ProgressDialog.Avalonia.svg?label=Avalonia)](https://www.nuget.org/packages/ProgressDialog.Avalonia/)
 
+`ProgressDialog.Avalonia` 3.x needs Avalonia 12 and .NET 10 or later. For Avalonia 11, use 2.x.
+
 If you want to integrate the `ProgressStatus` object into a model in e.g. a `netStandard` library without support for UI frameworks, use this package in the model:
 
 [![nuget](https://img.shields.io/nuget/v/ProgressDialogStatus.svg?label=nuget)](https://www.nuget.org/packages/ProgressDialogStatus/)
