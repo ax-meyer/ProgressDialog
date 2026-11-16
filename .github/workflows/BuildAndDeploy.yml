@@ -5,6 +5,11 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: windows-latest
+    # NuGet trusted publishing: the job's GitHub OIDC token is exchanged for a short-lived
+    # nuget.org API key (policy on nuget.org: ax_meyer, this repo and workflow file).
+    permissions:
+      contents: read
+      id-token: write
    
     steps:
     - name: Checkout repo
@@ -25,7 +30,7 @@ jobs:
         cd ProgressDialog
         dotnet build --configuration Release
 
-    - name: Nuget Deploy
+    - name: Nuget Pack
       if: startsWith(github.ref, 'refs/tags/v') # make sure deploy only runs on tags with version number
       run: |
         $env:RELEASE_VERSION=($env:GITHUB_REF).split("tags/v")[-1]
@@ -34,5 +39,17 @@ jobs:
         cd ProgressDialog
         mkdir nupkg
         dotnet pack -p:PackageVersion=$env:RELEASE_VERSION -o  $PWD\nupkg -p:RepositoryCommit=$env:GITHUB_SHA --configuration Release
-        cd nupkg
-        dotnet nuget push "**/*.nupkg" --api-key ${{secrets.NUGET_DEPLOY_KEY}} --source "https://api.nuget.org/v3/index.json"
+
+    # The key is valid for one hour, so it is requested right before the push.
+    - name: NuGet login (OIDC to temporary API key)
+      if: startsWith(github.ref, 'refs/tags/v') # make sure deploy only runs on tags with version number
+      uses: NuGet/login@v1
+      id: nuget_login
+      with:
+        user: ax_meyer
+
+    - name: Nuget Deploy
+      if: startsWith(github.ref, 'refs/tags/v') # make sure deploy only runs on tags with version number
+      run: |
+        cd ProgressDialog\nupkg
+        dotnet nuget push "**/*.nupkg" --api-key ${{ steps.nuget_login.outputs.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
